@@ -21,7 +21,9 @@ RUN \
     chown $APOLLO_USER:$APOLLO_USER /opt/$ACTIVEMQ -R && \
     /opt/apollo/bin/apollo create /opt/apollo-instance
 
-WORKDIR $APOLLO_HOME
+COPY ./apollo.xml /opt/apollo-instance/etc/apollo.xml
+
+WORKDIR /opt/apollo-instance
 
 EXPOSE 61613 61680
 
